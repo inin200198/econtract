@@ -40,7 +40,7 @@ get_header();
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="txt-video">
-                            <h3 class="desc wow fadeInUp wHighlight" data-wow-delay=".2s"><?php echo the_field('title_video') ?></h3>
+                            <h3 class="desc wow fadeInUp wHighlight" data-wow-delay=".2s"><?php the_field('title_video') ?></h3>
                             <div class="info-txt-video">
                                 <?php while ( has_sub_field('content_video')) : ?>
                                     <div class="item-txt-video wow fadeInUp wHighlight" data-wow-delay=".2s">
@@ -64,7 +64,7 @@ get_header();
                                     d="M71.2938 0H8.33082L0.140632 55.528C-0.996619 63.2384 4.90835 70.1684 12.6155 70.1684H71.2938V53.8224H22.654C16.3728 53.8224 11.6062 48.0989 12.6731 41.8378L15.1601 27.2426C15.9975 22.3286 20.2112 18.7382 25.1411 18.7382H46.3111C52.5053 18.7382 57.2388 24.3284 56.2868 30.5194C55.5218 35.4934 51.2876 39.1615 46.3111 39.1615H30.3714C28.6299 39.1615 27.2181 37.7336 27.2181 35.9721C27.2181 34.2106 28.6299 32.7826 30.3714 32.7826H46.3111C48.1789 32.7826 49.7681 31.4058 50.0552 29.539C50.4126 27.2153 48.636 25.1171 46.3111 25.1171H25.1411C23.2809 25.1171 21.6909 26.4719 21.3749 28.3261L18.8879 42.9213C18.4853 45.2838 20.2839 47.4434 22.654 47.4434H71.2938V0Z"
                                     fill="#3981F3" />
                             </svg>
-                            <?php echo the_field('iframe_video') ?>
+                            <?php  the_field('iframe_video'); ?>
                         </div>
                     </div>
                 </div>
@@ -170,58 +170,20 @@ get_header();
                 <div class="row">
                     <div class="col-md-6 pr-0">
                         <div class="info-opt">
-                            <h3 class=" wow fadeInUp wHighlight" data-wow-delay=".2s">Tối ưu an toàn, an ninh thông tin
+                            <h3 class=" wow fadeInUp wHighlight" data-wow-delay=".2s"><?php the_field('title_antoan') ?>
                             </h3>
                             <ul>
+                                <?php while ( has_sub_field('content_antoan' ) ) : ?>
                                 <li class=" wow fadeInUp wHighlight" data-wow-delay=".2s">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M22.4967 10.8032H22.5002C23.1431 10.8032 23.6657 11.3235 23.6669 11.9663C23.6762 15.0825 22.4711 18.0167 20.2731 20.2263C18.0762 22.436 15.1502 23.6575 12.0341 23.6668H12.0002C8.89572 23.6668 5.97555 22.4628 3.77405 20.273C1.56438 18.0762 0.342883 15.1502 0.33355 12.034C0.324217 8.91666 1.52938 5.98366 3.72738 3.774C5.92422 1.56433 8.85022 0.342829 11.9664 0.333496C12.8939 0.347496 13.8389 0.440829 14.7442 0.657829C15.3696 0.809496 15.7557 1.4395 15.6041 2.066C15.4536 2.69133 14.8201 3.07633 14.1971 2.927C13.4726 2.752 12.7037 2.6785 11.9734 2.66683C9.48022 2.67383 7.13872 3.6515 5.38172 5.419C3.62355 7.1865 2.65988 9.53383 2.66688 12.027C2.67388 14.5202 3.65155 16.8605 5.41905 18.6187C7.18072 20.3698 9.51638 21.3335 12.0002 21.3335H12.0271C14.5202 21.3265 16.8617 20.3488 18.6187 18.5813C20.3769 16.8127 21.3406 14.4665 21.3336 11.9733C21.3324 11.3293 21.8527 10.8043 22.4967 10.8032ZM7.67538 11.1752C8.13155 10.719 8.86888 10.719 9.32505 11.1752L11.9431 13.7932L19.2896 5.39787C19.7142 4.91604 20.4504 4.86471 20.9357 5.28937C21.4199 5.71287 21.4689 6.45021 21.0442 6.93554L12.8776 16.2689C12.6652 16.5115 12.3619 16.655 12.0387 16.6667H12.0002C11.691 16.6667 11.3947 16.5442 11.1754 16.3249L7.67538 12.8249C7.21922 12.3687 7.21922 11.6314 7.67538 11.1752Z"
-                                            fill="#2E6CF6"></path>
+                                            fill="#2E6CF6" />
                                     </svg>
-                                    <span>Đáp ứng đầy đủ tính pháp lý về xác thực điện tử</span>
+                                    <span><?php the_sub_field( 'item_antoan' ); ?></span>
                                 </li>
-                                <li class=" wow fadeInUp wHighlight" data-wow-delay=".2s">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M22.4967 10.8032H22.5002C23.1431 10.8032 23.6657 11.3235 23.6669 11.9663C23.6762 15.0825 22.4711 18.0167 20.2731 20.2263C18.0762 22.436 15.1502 23.6575 12.0341 23.6668H12.0002C8.89572 23.6668 5.97555 22.4628 3.77405 20.273C1.56438 18.0762 0.342883 15.1502 0.33355 12.034C0.324217 8.91666 1.52938 5.98366 3.72738 3.774C5.92422 1.56433 8.85022 0.342829 11.9664 0.333496C12.8939 0.347496 13.8389 0.440829 14.7442 0.657829C15.3696 0.809496 15.7557 1.4395 15.6041 2.066C15.4536 2.69133 14.8201 3.07633 14.1971 2.927C13.4726 2.752 12.7037 2.6785 11.9734 2.66683C9.48022 2.67383 7.13872 3.6515 5.38172 5.419C3.62355 7.1865 2.65988 9.53383 2.66688 12.027C2.67388 14.5202 3.65155 16.8605 5.41905 18.6187C7.18072 20.3698 9.51638 21.3335 12.0002 21.3335H12.0271C14.5202 21.3265 16.8617 20.3488 18.6187 18.5813C20.3769 16.8127 21.3406 14.4665 21.3336 11.9733C21.3324 11.3293 21.8527 10.8043 22.4967 10.8032ZM7.67538 11.1752C8.13155 10.719 8.86888 10.719 9.32505 11.1752L11.9431 13.7932L19.2896 5.39787C19.7142 4.91604 20.4504 4.86471 20.9357 5.28937C21.4199 5.71287 21.4689 6.45021 21.0442 6.93554L12.8776 16.2689C12.6652 16.5115 12.3619 16.655 12.0387 16.6667H12.0002C11.691 16.6667 11.3947 16.5442 11.1754 16.3249L7.67538 12.8249C7.21922 12.3687 7.21922 11.6314 7.67538 11.1752Z"
-                                            fill="#2E6CF6"></path>
-                                    </svg>
-                                    <span>Giải pháp bảo mật chống tấn công từ bên ngoài 24/7</span>
-                                </li>
-                                <li class=" wow fadeInUp wHighlight" data-wow-delay=".2s">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M22.4967 10.8032H22.5002C23.1431 10.8032 23.6657 11.3235 23.6669 11.9663C23.6762 15.0825 22.4711 18.0167 20.2731 20.2263C18.0762 22.436 15.1502 23.6575 12.0341 23.6668H12.0002C8.89572 23.6668 5.97555 22.4628 3.77405 20.273C1.56438 18.0762 0.342883 15.1502 0.33355 12.034C0.324217 8.91666 1.52938 5.98366 3.72738 3.774C5.92422 1.56433 8.85022 0.342829 11.9664 0.333496C12.8939 0.347496 13.8389 0.440829 14.7442 0.657829C15.3696 0.809496 15.7557 1.4395 15.6041 2.066C15.4536 2.69133 14.8201 3.07633 14.1971 2.927C13.4726 2.752 12.7037 2.6785 11.9734 2.66683C9.48022 2.67383 7.13872 3.6515 5.38172 5.419C3.62355 7.1865 2.65988 9.53383 2.66688 12.027C2.67388 14.5202 3.65155 16.8605 5.41905 18.6187C7.18072 20.3698 9.51638 21.3335 12.0002 21.3335H12.0271C14.5202 21.3265 16.8617 20.3488 18.6187 18.5813C20.3769 16.8127 21.3406 14.4665 21.3336 11.9733C21.3324 11.3293 21.8527 10.8043 22.4967 10.8032ZM7.67538 11.1752C8.13155 10.719 8.86888 10.719 9.32505 11.1752L11.9431 13.7932L19.2896 5.39787C19.7142 4.91604 20.4504 4.86471 20.9357 5.28937C21.4199 5.71287 21.4689 6.45021 21.0442 6.93554L12.8776 16.2689C12.6652 16.5115 12.3619 16.655 12.0387 16.6667H12.0002C11.691 16.6667 11.3947 16.5442 11.1754 16.3249L7.67538 12.8249C7.21922 12.3687 7.21922 11.6314 7.67538 11.1752Z"
-                                            fill="#2E6CF6"></path>
-                                    </svg>
-                                    <span>Hợp đồng, tài liệu điện tử được lưu trữ tại Trung tâm dữ liệu duy nhất tại
-                                        Việt Nam đạt an toàn thông tin ISO 27001:2013 và 22301:2012</span>
-                                </li>
-                                <li class=" wow fadeInUp wHighlight" data-wow-delay=".2s">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M22.4967 10.8032H22.5002C23.1431 10.8032 23.6657 11.3235 23.6669 11.9663C23.6762 15.0825 22.4711 18.0167 20.2731 20.2263C18.0762 22.436 15.1502 23.6575 12.0341 23.6668H12.0002C8.89572 23.6668 5.97555 22.4628 3.77405 20.273C1.56438 18.0762 0.342883 15.1502 0.33355 12.034C0.324217 8.91666 1.52938 5.98366 3.72738 3.774C5.92422 1.56433 8.85022 0.342829 11.9664 0.333496C12.8939 0.347496 13.8389 0.440829 14.7442 0.657829C15.3696 0.809496 15.7557 1.4395 15.6041 2.066C15.4536 2.69133 14.8201 3.07633 14.1971 2.927C13.4726 2.752 12.7037 2.6785 11.9734 2.66683C9.48022 2.67383 7.13872 3.6515 5.38172 5.419C3.62355 7.1865 2.65988 9.53383 2.66688 12.027C2.67388 14.5202 3.65155 16.8605 5.41905 18.6187C7.18072 20.3698 9.51638 21.3335 12.0002 21.3335H12.0271C14.5202 21.3265 16.8617 20.3488 18.6187 18.5813C20.3769 16.8127 21.3406 14.4665 21.3336 11.9733C21.3324 11.3293 21.8527 10.8043 22.4967 10.8032ZM7.67538 11.1752C8.13155 10.719 8.86888 10.719 9.32505 11.1752L11.9431 13.7932L19.2896 5.39787C19.7142 4.91604 20.4504 4.86471 20.9357 5.28937C21.4199 5.71287 21.4689 6.45021 21.0442 6.93554L12.8776 16.2689C12.6652 16.5115 12.3619 16.655 12.0387 16.6667H12.0002C11.691 16.6667 11.3947 16.5442 11.1754 16.3249L7.67538 12.8249C7.21922 12.3687 7.21922 11.6314 7.67538 11.1752Z"
-                                            fill="#2E6CF6"></path>
-                                    </svg>
-                                    <span>Phần mềm xây dựng theo quy trình chuẩn quốc tế về quản lý chất lượng, bảo mật
-                                        thông tin ISO 9001:2008, ISO 2700 và CMMI3</span>
-                                </li>
-                                <li class=" wow fadeInUp wHighlight" data-wow-delay=".2s">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M22.4967 10.8032H22.5002C23.1431 10.8032 23.6657 11.3235 23.6669 11.9663C23.6762 15.0825 22.4711 18.0167 20.2731 20.2263C18.0762 22.436 15.1502 23.6575 12.0341 23.6668H12.0002C8.89572 23.6668 5.97555 22.4628 3.77405 20.273C1.56438 18.0762 0.342883 15.1502 0.33355 12.034C0.324217 8.91666 1.52938 5.98366 3.72738 3.774C5.92422 1.56433 8.85022 0.342829 11.9664 0.333496C12.8939 0.347496 13.8389 0.440829 14.7442 0.657829C15.3696 0.809496 15.7557 1.4395 15.6041 2.066C15.4536 2.69133 14.8201 3.07633 14.1971 2.927C13.4726 2.752 12.7037 2.6785 11.9734 2.66683C9.48022 2.67383 7.13872 3.6515 5.38172 5.419C3.62355 7.1865 2.65988 9.53383 2.66688 12.027C2.67388 14.5202 3.65155 16.8605 5.41905 18.6187C7.18072 20.3698 9.51638 21.3335 12.0002 21.3335H12.0271C14.5202 21.3265 16.8617 20.3488 18.6187 18.5813C20.3769 16.8127 21.3406 14.4665 21.3336 11.9733C21.3324 11.3293 21.8527 10.8043 22.4967 10.8032ZM7.67538 11.1752C8.13155 10.719 8.86888 10.719 9.32505 11.1752L11.9431 13.7932L19.2896 5.39787C19.7142 4.91604 20.4504 4.86471 20.9357 5.28937C21.4199 5.71287 21.4689 6.45021 21.0442 6.93554L12.8776 16.2689C12.6652 16.5115 12.3619 16.655 12.0387 16.6667H12.0002C11.691 16.6667 11.3947 16.5442 11.1754 16.3249L7.67538 12.8249C7.21922 12.3687 7.21922 11.6314 7.67538 11.1752Z"
-                                            fill="#2E6CF6"></path>
-                                    </svg>
-                                    <span>Hệ thống áp dụng nhiều giải pháp, nhiều tầng, lớp bảo mật khác
-                                        nhau: Firewall, Web-App Firewall, Mã hóa kênh truyền, Mã hóa dữ liệu,
-                                        Multi-tenancy, Pentest"</span>
-                                </li>
+                                <?php endwhile; ?>
                             </ul>
                             <div class="btn-banner text-uppercase wow fadeInUp wHighlight" data-wow-delay=".2s">
                                 <ul>
@@ -233,7 +195,7 @@ get_header();
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="avr wow fadeInRight wHighlight" data-wow-delay=".2s"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/optimal.png"
+                        <div class="avr wow fadeInRight wHighlight" data-wow-delay=".2s"><img src="<?php echo get_field('avr_antoan')['url'] ?>"
                                 class="img-fluid" alt=""></div>
                     </div>
                 </div>
@@ -243,42 +205,14 @@ get_header();
     <section class="box-tool-step">
         <div class="container">
             <div class="slide-tool dot-circle">
+                <?php while ( has_sub_field('ds_dv' ) ) : ?>
                 <div class="item-slide wow fadeInUp wHighlight" data-wow-delay=".2s">
                     <div class="item-tool text-center">
-                        <div class="icon"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/tool-1.png" class="img-fluid" alt=""></div>
-                        <p>Tải tool ký số</p>
+                        <div class="icon"><img src="<?php the_sub_field( 'image' ); ?>" class="img-fluid" alt=""></div>
+                        <p><?php the_sub_field( 'tieu_de' ); ?></p>
                     </div>
                 </div>
-                <div class="item-slide wow fadeInUp wHighlight" data-wow-delay=".25s">
-                    <div class="item-tool text-center">
-                        <div class="icon"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/tool-2.png" class="img-fluid" alt=""></div>
-                        <p>Hướng dẫn cài đặt</p>
-                    </div>
-                </div>
-                <div class="item-slide wow fadeInUp wHighlight" data-wow-delay=".3s">
-                    <div class="item-tool text-center">
-                        <div class="icon"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/tool-3.png" class="img-fluid" alt=""></div>
-                        <p>Liên hệ làm đại lý</p>
-                    </div>
-                </div>
-                <div class="item-slide wow fadeInUp wHighlight" data-wow-delay=".35s">
-                    <div class="item-tool text-center">
-                        <div class="icon"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/tool-4.png" class="img-fluid" alt=""></div>
-                        <p>Đăng ký sử dụng</p>
-                    </div>
-                </div>
-                <div class="item-slide wow fadeInUp wHighlight" data-wow-delay=".4s">
-                    <div class="item-tool text-center">
-                        <div class="icon"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/tool-3.png" class="img-fluid" alt=""></div>
-                        <p>Liên hệ làm đại lý</p>
-                    </div>
-                </div>
-                <div class="item-slide wow fadeInUp wHighlight" data-wow-delay=".45s">
-                    <div class="item-tool text-center">
-                        <div class="icon"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/tool-4.png" class="img-fluid" alt=""></div>
-                        <p>Đăng ký sử dụng</p>
-                    </div>
-                </div>
+                <?php endwhile; ?>
             </div>
         </div>
     </section>
