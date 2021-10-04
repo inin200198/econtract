@@ -56,7 +56,6 @@ $current_language = qtranxf_getLanguage();
                         <div class="right">
                             <ul>
                                 <li><a href="">Đăng nhập</a></li>
-                                <li><a href="" class="dthu">Dùng thử miễn phí 3 tháng</a></li>
                                 <li>
                                     <div class="translate">
                                         <a href="#">
