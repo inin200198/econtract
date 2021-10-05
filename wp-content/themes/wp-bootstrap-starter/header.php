@@ -114,6 +114,6 @@ $current_language = qtranxf_getLanguage();
 			</ul>
 			<div class="box-gif">
 				<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/gif-1.png" class="img-fluid" alt="">
-				<span><a href="" target="_blank">Khuyến mại lớn</a></span>
+				<span><a href="https://khuyenmaiecontract.fpt.com.vn/" target="_blank">Khuyến mại lớn</a></span>
 			</div>
 		</div>
