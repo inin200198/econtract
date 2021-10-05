@@ -543,62 +543,24 @@ get_header();
     <section class="box-feedback">
         <div class="container">
             <div class="slide-feedback dot-circle wow fadeInUp wHighlight" data-wow-delay=".2s">
-                <div class="item-slide">
-                    <div class="item-feed">
-                        <div class="icon-fb"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/fb.png" class="img-fluid" alt=""></div>
-                        <div class="info">
-                            <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt augue
-                                tristique tempor elementum, donec euismod ut neque, aenean. Fermentum fusce lorem turpis
-                                dignissim egestas sit.</div>
-                            <div class="fb-bott text-right">
-                                <h6>Nguyễn Văn Thủy</h6>
-                                <label>CEO Pitstudio</label>
+                <?php while ( has_sub_field('danh_sach_feedback' ) ) : ?>
+                    <div class="item-slide wow fadeInUp wHighlight" data-wow-delay=".2s">
+                        <div class="item-slide">
+                            <div class="item-feed">
+                                <div class="icon-fb"><img src="<?php echo get_sub_field('avr_fb')['url']; ?>" class="img-fluid" alt=""></div>
+                                <div class="info">
+                                    <div class="desc">
+                                        <?php the_sub_field( 'content_fb' ); ?>
+                                    </div>
+                                    <div class="fb-bott text-right">
+                                        <h6><?php the_sub_field( 'name_fb' ); ?></h6>
+                                        <label><?php the_sub_field( 'cd_fb' ); ?></label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-feed">
-                        <div class="icon-fb"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/fb.png" class="img-fluid" alt=""></div>
-                        <div class="info">
-                            <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt augue
-                                tristique tempor elementum, donec euismod ut neque, aenean. Fermentum fusce lorem turpis
-                                dignissim egestas sit.</div>
-                            <div class="fb-bott text-right">
-                                <h6>Nguyễn Văn Thủy</h6>
-                                <label>CEO Pitstudio</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-feed">
-                        <div class="icon-fb"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/fb.png" class="img-fluid" alt=""></div>
-                        <div class="info">
-                            <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt augue
-                                tristique tempor elementum, donec euismod ut neque, aenean. Fermentum fusce lorem turpis
-                                dignissim egestas sit.</div>
-                            <div class="fb-bott text-right">
-                                <h6>Nguyễn Văn Thủy</h6>
-                                <label>CEO Pitstudio</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-feed">
-                        <div class="icon-fb"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/fb.png" class="img-fluid" alt=""></div>
-                        <div class="info">
-                            <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt augue
-                                tristique tempor elementum, donec euismod ut neque, aenean. Fermentum fusce lorem turpis
-                                dignissim egestas sit.</div>
-                            <div class="fb-bott text-right">
-                                <h6>Nguyễn Văn Thủy</h6>
-                                <label>CEO Pitstudio</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endwhile; ?>
             </div>
         </div>
     </section>
@@ -606,97 +568,40 @@ get_header();
         <div class="container">
             <div class="title-price wow fadeInUp wHighlight" data-wow-delay=".2s">Khách hàng tiêu biểu</div>
             <div class="slide-partner dot-circle wow fadeInUp wHighlight" data-wow-delay=".2s">
-                <div class="item-slide">
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-1.png" class="img-fluid" alt=""></a>
+                <?php 
+                    $array = get_field('img_kh','option');
+                    // print_r($array); 
+                ?>
+                <?php foreach (array_chunk($array, 2) as $chunk): ?>
+                    <div class="item-slide">
+                        <?php foreach ($chunk as $key => $value): ?>
+                            <div class="item-partner"><a href=""><img src="<?php echo $value['list_img_kh']['url'] ?>" class="img-fluid" alt=""></a></div>
+                        <?php endforeach ?>
                     </div>
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-1.png" class="img-fluid" alt=""></a>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-2.png" class="img-fluid" alt=""></a>
-                    </div>
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-2.png" class="img-fluid" alt=""></a>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-3.png" class="img-fluid" alt=""></a>
-                    </div>
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-3.png" class="img-fluid" alt=""></a>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-4.png" class="img-fluid" alt=""></a>
-                    </div>
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-4.png" class="img-fluid" alt=""></a>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-5.png" class="img-fluid" alt=""></a>
-                    </div>
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-5.png" class="img-fluid" alt=""></a>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-6.png" class="img-fluid" alt=""></a>
-                    </div>
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-6.png" class="img-fluid" alt=""></a>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-4.png" class="img-fluid" alt=""></a>
-                    </div>
-                    <div class="item-partner"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/part-4.png" class="img-fluid" alt=""></a>
-                    </div>
-                </div>
+                <?php endforeach ?> 
             </div>
         </div>
     </section>
     <section class="box-proce">
         <div class="svg-abs svg-3"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/abs-3.png" class="img-fluid" alt=""></div>
         <div class="container">
-            <div class="title-price wow fadeInUp wHighlight" data-wow-delay=".2s">Triển khai với Quy trình Không
-                chạm,<br> hợp đồng Không giấy</div>
+            <div class="title-price wow fadeInUp wHighlight" data-wow-delay=".2s"><?php the_field('title_tk') ?></div>
             <div class="content-proce">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="list-proce">
                             <ul>
-                                <li class="wow fadeInUp wHighlight" data-wow-delay=".2s">
-                                    <div class="item-proce text-center">
-                                        <div class="icon"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/i-pr-1.png" class="img-fluid" alt=""></div>
-                                        <div class="info">
-                                            <h5>30 giây</h5>
-                                            <p>Đăng ký online</p>
+                                <?php while ( has_sub_field('danh_sach_tk') ) : ?>
+                                    <li class="wow fadeInUp wHighlight" data-wow-delay=".2s">
+                                        <div class="item-proce text-center">
+                                            <div class="icon"><img src="<?php echo get_sub_field( 'icon_tk')['url']; ?>" class="img-fluid" alt=""></div>
+                                            <div class="info">
+                                                <h5><?php echo the_sub_field( 'title_item_tk'); ?></h5>
+                                                <p><?php echo the_sub_field( 'content_item_tk'); ?></p>
+                                            </div> 
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="wow fadeInUp wHighlight" data-wow-delay=".25s">
-                                    <div class="item-proce text-center">
-                                        <div class="icon"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/i-pr-2.png" class="img-fluid" alt=""></div>
-                                        <div class="info">
-                                            <h5>2 giờ</h5>
-                                            <p>Triển khai trực tuyến</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="wow fadeInUp wHighlight" data-wow-delay=".3s">
-                                    <div class="item-proce text-center">
-                                        <div class="icon"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/i-pr-3.png" class="img-fluid" alt=""></div>
-                                        <div class="info">
-                                            <h5>1 phút</h5>
-                                            <p>Ký hợp đồng điện tử</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="wow fadeInUp wHighlight" data-wow-delay=".35s">
-                                    <div class="item-proce text-center">
-                                        <div class="icon"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/i-pr-4.png" class="img-fluid" alt=""></div>
-                                        <div class="info">
-                                            <h5>24/7</h5>
-                                            <p>Hỗ trợ đa kênh</p>
-                                        </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                <?php endwhile; ?>
                             </ul>
                         </div>
                     </div>
@@ -764,10 +669,10 @@ get_header();
     <section class="banner-qc">
         <div class="container">
             <div class="content-qc">
-                <div class="logo-qc"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/logo-qc.png" class="img-fluid" alt=""></div>
-                <h3>Tiên phong giải pháp số hoá doanh nghiệp </h3>
+                <div class="logo-qc"><img src="<?php echo get_field('logo_bott','option')['url'] ?>" class="img-fluid" alt=""></div>
+                <h3><?php the_field('title_bott','option') ?> </h3>
                 <div class="link-more">
-                    <a href="">
+                    <a href="<?php echo the_field('link_bott','option') ?>">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g opacity="0.6">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
