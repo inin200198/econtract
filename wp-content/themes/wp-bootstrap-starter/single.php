@@ -120,9 +120,9 @@ get_header();
             </div>
         </section> 
         <?php
-$category = get_the_category();
-$firstCategory = $category[0]->cat_name;
-print_r($firstCategory);
+        $category_type = get_the_category();
+        $id_tintuc = array_search(5, array_column($category_type, 'term_id'));
+        if ($id_tintuc) {
         ?>
         <section class="box-case-study news-study">
             <div class="container">
@@ -130,7 +130,7 @@ print_r($firstCategory);
                 <div class="slide-casestudy dot-circle">
                     <?php
                     $args_nb=array(
-//                        'category_name' => 'Tin luật',
+                        'cat' => 5,
                         'post_type' => 'post',
                         'orderby'   => 'publish_date',
                         'order'     => 'DESC',
@@ -154,23 +154,26 @@ print_r($firstCategory);
                 </div>
             </div>
         </section>
+        <?php
+        }else{
+        ?>
         <section class="box-other-support">
             <div class="container">
                 <div class="title-other-support">Tin liên quan</div>
                 <div class="lsit-other-support">
                     <?php
                         $args_sp=array(
-//                            'category_name' => 'Tin luật',
+                            'category__not_in' => [5],
                             'post_type' => 'post',
                             'orderby'   => 'publish_date',
                             'order'     => 'DESC',
                              'posts_per_page' => 5,
                         );
-                        $my_query_sp = new wp_query($args_nb);
+                        $my_query_sp = new wp_query($args_sp);
                     ?>
                     <ul>
-                        <?php if ( $my_query_nb->have_posts() ): ?>
-                            <?php while ($my_query_nb->have_posts()):$my_query_nb->the_post(); ?>
+                        <?php if ( $my_query_sp->have_posts() ): ?>
+                            <?php while ($my_query_sp->have_posts()):$my_query_sp->the_post(); ?>
                                 <li>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle opacity="0.2" cx="12" cy="12" r="12" fill="#769FFA"/>
@@ -184,6 +187,9 @@ print_r($firstCategory);
                 </div>
             </div>
         </section>
+        <?php
+        }
+        ?>
         <section class="banner-qc">
             <div class="container">
                 <div class="content-qc">
