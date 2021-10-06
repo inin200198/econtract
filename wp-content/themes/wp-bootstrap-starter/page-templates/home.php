@@ -35,7 +35,7 @@ get_header();
         </div>
     </section>
     <section class="box-video">
-        <div class="container">
+        <div class="container"> 
             <div class="content-video">
                 <div class="row align-items-center">
                     <div class="col-md-6">
@@ -213,12 +213,25 @@ get_header();
             <div class="slide-tool dot-circle">
                 <?php while ( has_sub_field('ds_dv' ) ) : ?>
                 <div class="item-slide wow fadeInUp wHighlight" data-wow-delay=".2s">
-                    <div class="item-tool text-center">
+                    <div class="item-tool text-center" data-toggle="modal" data-target="#myModal-form">
                         <div class="icon"><img src="<?php the_sub_field( 'image' ); ?>" class="img-fluid" alt=""></div>
                         <p><?php the_sub_field( 'tieu_de' ); ?></p>
                     </div>
                 </div>
                 <?php endwhile; ?>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal-form">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="content-popup-form">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="text-center ">Đăng ký dùng thử hợp đồng điện tử</h4>
+                             <?php echo do_shortcode( '[contact-form-7 id="1264" title="Đăng ký dùng thử"]' ) ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -295,46 +308,32 @@ get_header();
         <div class="container">
             <div class="title-price text-center wow fadeInUp wHighlight" data-wow-delay=".2s">Case Study</div>
             <div class="slide-casestudy dot-circle wow fadeInUp wHighlight" data-wow-delay=".2s">
-                <div class="item-slide">
-                    <div class="item-case">
-                        <div class="avarta"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/case-1.png" class="img-fluid w-100" alt=""></a>
+                <?php 
+                    $args_nb=array(
+                        'category_name' => 'Tin luật', 
+                        'post_type' => 'post',
+                        'orderby'   => 'publish_date',
+                        'order'     => 'DESC',
+                        // 'posts_per_page' => 10, 
+                    );   
+                    $my_query_nb = new wp_query($args_nb);
+                ?>
+                <?php if ( $my_query_nb->have_posts() ): ?>
+                    <?php while ($my_query_nb->have_posts()):$my_query_nb->the_post(); ?>
+                        <div class="item-slide">
+                            <div class="item-case">
+                                <div class="avarta"><a href="<?php echo get_the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url() ?>" class="img-fluid w-100" alt=""></a></div>
+                                <div class="info">
+                                    <h3><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title(); ?></a></h3>
+                                </div>
+                            </div>
                         </div>
-                        <div class="info">
-                            <h3><a href="">Ký kết hợp đồng điện tử lĩnh vực hàng không</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-case">
-                        <div class="avarta"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/case-2.png" class="img-fluid w-100" alt=""></a>
-                        </div>
-                        <div class="info">
-                            <h3><a href="">Ký kết hợp đồng điện tử lĩnh vực hàng không</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-case">
-                        <div class="avarta"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/case-1.png" class="img-fluid w-100" alt=""></a>
-                        </div>
-                        <div class="info">
-                            <h3><a href="">Ký kết hợp đồng điện tử lĩnh vực hàng không</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <div class="item-case">
-                        <div class="avarta"><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/case-2.png" class="img-fluid w-100" alt=""></a>
-                        </div>
-                        <div class="info">
-                            <h3><a href="">Ký kết hợp đồng điện tử lĩnh vực hàng không</a></h3>
-                        </div>
-                    </div>
-                </div>
+                    <?php endwhile ?>
+                <?php endif;wp_reset_query(); ?>
             </div>
         </div>
     </section>
-    <section class="box-feedback">
+    <section class="box-feedback"> 
         <div class="container">
             <div class="slide-feedback dot-circle wow fadeInUp wHighlight" data-wow-delay=".2s">
                 <?php while ( has_sub_field('danh_sach_feedback' ) ) : ?>

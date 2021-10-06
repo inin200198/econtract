@@ -112,6 +112,38 @@
                 arrow: false,
                 dots: true,
                 slidesToShow: 3,
+                slidesToScroll: 3,
+                centerMode: false,
+                responsive: [
+                    {
+                        breakpoint: 1023,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 575,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                        }
+                    }
+                ],
+            });
+            $(".slide-support").slick({
+                autoplay: false,
+                arrow: false,
+                dots: true,
+                slidesToShow: 4,
+                slidesToScroll: 2,
                 centerMode: false,
                 responsive: [
                     {
@@ -168,9 +200,10 @@
             });
             $(".slide-partner").slick({
                 autoplay: false,
-                arrow: false,
+                arrow: false, 
                 dots: true,
                 slidesToShow: 6,
+                slidesToScroll: 3,
                 centerMode: false,
                 prevArrow: '<a href="javascript:void(0)" class="prev"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
                     '<path d="M0 2C0 0.895431 0.895431 0 2 0H38C39.1046 0 40 0.895431 40 2V38C40 39.1046 39.1046 40 38 40H2C0.895431 40 0 39.1046 0 38V2Z" fill="#B8BCBF"/>\n' +

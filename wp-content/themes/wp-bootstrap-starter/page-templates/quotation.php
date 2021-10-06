@@ -332,27 +332,35 @@ get_header();
             </div>
             <div class="contenet-quess">
                 <div class="left">
-                    <div class="box-quess">
+                    <div class="box-search-quess">
+                        <input type="text" placeholder="Gõ từ khoá bạn muốn tìm">
+                        <button>
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.33336 13.3333C3.33336 7.81833 7.81836 3.33333 13.3334 3.33333C18.8484 3.33333 23.3334 7.81833 23.3334 13.3333C23.3334 18.8483 18.8484 23.3333 13.3334 23.3333C7.81836 23.3333 3.33336 18.8483 3.33336 13.3333ZM29.5117 27.155L23.8533 21.495C25.6083 19.2383 26.6667 16.41 26.6667 13.3333C26.6667 5.98167 20.685 0 13.3333 0C5.98167 0 0 5.98167 0 13.3333C0 20.685 5.98167 26.6667 13.3333 26.6667C16.41 26.6667 19.2383 25.6083 21.495 23.8533L27.155 29.5117C27.48 29.8367 27.9067 30 28.3333 30C28.76 30 29.1867 29.8367 29.5117 29.5117C30.1633 28.86 30.1633 27.8067 29.5117 27.155Z" fill="#2E3A59"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="box-quess"> 
                         <div id="accordion">
                             <?php
-                                $count_head = 1;
-                                $count_coll = 1;
+                            $count_head = 1;
+                            $count_coll = 1;  
                             ?>
-                            <?php while ( has_sub_field('list_quess_box','option')) : ?>
-                                <div class="card">
-                                    <div class="card-header">
-                                        <button class="btn btn-link <?php echo $count_head == 1 ? null : 'collapsed'; ?>" data-toggle="collapse" data-target="#collapse-<?php echo $count_head++ ?>" aria-expanded="true">
-                                            <span class="icon"><i class="fa fa-plus"></i></span>
-                                            <label><?php the_sub_field('cau_hoi','option') ?></label>
+                            <?php while ( has_sub_field('list_quess_box','option')) : ?> 
+                                <div class="card-quess">
+                                    <div class="head-quess">
+                                        <button class="<?php echo $count_head == 1 ? null : 'collapsed'; ?>" data-toggle="collapse" data-target="#collapse-<?php echo $count_head++ ?>" aria-expanded="true">
+                                            <span class="icon"></span>
+                                            <label><?php the_sub_field('cau_hoi_item','option') ?></label>
                                         </button>
                                     </div>
                                     <div id="collapse-<?php echo $count_coll++ ?>" class="collapse <?php echo $count_coll == 2 ? 'show' : null; ?>" data-parent="#accordion">
-                                        <div class="card-body">
-                                            <?php the_sub_field('tra_loi','option') ?>
-                                        </div> 
+                                        <div class="content-answer">
+                                            <?php the_sub_field('tra_loi_item','option') ?>
+                                        </div>
                                     </div>
-                                </div> 
-                            <?php endwhile; ?>
+                                </div>
+                            <?php endwhile; ?>  
                         </div>
                     </div> 
                 </div>
@@ -379,9 +387,10 @@ get_header();
             </div>
         </div>
     </section>
-    <section class="box-partner">
+    <section class="box-part">
         <div class="container">
-            <div class="slide-partner dot-circle">
+            <div class="title-price wow fadeInUp wHighlight" data-wow-delay=".2s">Khách hàng tiêu biểu</div>
+            <div class="slide-partner dot-circle wow fadeInUp wHighlight" data-wow-delay=".2s">
                 <?php 
                     $array = get_field('img_kh','option');
                     // print_r($array); 

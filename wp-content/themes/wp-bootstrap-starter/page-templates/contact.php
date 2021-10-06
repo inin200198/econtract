@@ -13,23 +13,7 @@ get_header();
             <div class="title-price wow fadeInUp wHighlight" data-wow-delay=".2s">Để lại thông tin ngay để nhận <br> tư vấn miễn phí</div>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-contact">
-                        <div class="item-form wow fadeInUp wHighlight" data-wow-delay=".2s">
-                            <label>Họ và tên</label>
-                            <input type="text" class="txt_field" placeholder="Nhập tên của bạn">
-                        </div>
-                        <div class="item-form wow fadeInUp wHighlight" data-wow-delay=".2s">
-                            <label>Email</label>
-                            <input type="text" class="txt_field" placeholder="Nhập email">
-                        </div>
-                        <div class="item-form wow fadeInUp wHighlight" data-wow-delay=".2s">
-                            <label>Số điện thoại</label>
-                            <input type="text" class="txt_field" placeholder="Nhập số điện thoại">
-                        </div>
-                        <div class="item-form wow fadeInUp wHighlight" data-wow-delay=".2s">
-                            <input type="submit" value="Gửi thông tin" class="btn-contact-submit text-uppercase">
-                        </div>
-                    </div>
+                    <?php echo do_shortcode( '[contact-form-7 id="1263" title="Form liên hệ"]' ) ?>
                 </div>
                 <div class="col-md-6 text-center">
                     <div class="avarta"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/contact.png" class="img-fluid" alt=""></div>
@@ -39,7 +23,7 @@ get_header();
     </section>
     <section class="box-info-contact">
         <div class="container">
-            <div class="row">
+            <div class="row"> 
                 <div class="col-md-12">
                     <div class="logo"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/logo.png" class="img-fluid" alt=""></div>
                 </div>
@@ -52,36 +36,28 @@ get_header();
                                 </svg>
                                 <a href="javascript:void(0)">024 3562 6000 - 024 7300 7373 </a>
                             </li>
-                            <li>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8C11.173 8 10.5 8.673 10.5 9.5C10.5 10.327 11.173 11 12 11C12.827 11 13.5 10.327 13.5 9.5C13.5 8.673 12.827 8 12 8ZM12 13C10.07 13 8.5 11.43 8.5 9.5C8.5 7.57 10.07 6 12 6C13.93 6 15.5 7.57 15.5 9.5C15.5 11.43 13.93 13 12 13ZM12 2C7.589 2 4 5.554 4 9.923C4 13.722 7.22734 18.5731 12 22C17.1054 18.6434 20 13.5814 20 9.923C20 5.554 16.411 2 12 2Z" fill="#121E28"/>
-                                </svg>
-                                <span>Tầng 22, toà nhà Keangnam Landmark 72, E6 Phạm Hùng, Nam Từ Liêm, Hà Nội</span>
-                            </li>
-                            <li>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H12C11.448 13 11 12.553 11 12V8C11 7.447 11.448 7 12 7C12.552 7 13 7.447 13 8V11H16C16.553 11 17 11.447 17 12C17 12.553 16.553 13 16 13ZM12 2C6.486 2 2 6.486 2 12C2 17.514 6.486 22 12 22C17.514 22 22 17.514 22 12C22 6.486 17.514 2 12 2Z" fill="#121E28"/>
-                                </svg>
-                                <span>8:00 am - 5:3m p.m</span>
-                            </li>
-                            <li>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M22.002 4.27252H1.99805V18.7274C1.99805 19.2797 2.44576 19.7274 2.99805 19.7274H21.002C21.5543 19.7274 22.002 19.2797 22.002 18.7274V4.27252ZM12.6274 11.4358L20.7898 5.68671H3.22266L11.3851 11.4358C11.7703 11.661 12.2421 11.661 12.6274 11.4358Z" fill="#121E28"/>
-                                </svg>
-                                <span>eContract@fpt.com.vn</span>
-                            </li>
+                            <?php while ( has_sub_field('thong_tin')) : ?>
+                                <li>
+                                    <?php the_sub_field('icon_svg') ?>
+                                    <span><?php the_sub_field('text_info') ?></span>
+                                </li>
+                            <?php endwhile; ?>
                         </ul>
                     </div>
                     <h4>Tham gia thảo luận FPT e.Contract</h4>
                     <div class="sc-contact">
-                        <ul>
-                            <li><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/sct-1.png" class="img-fluid" alt=""></a></li>
-                            <li><a href=""><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/sct-2.png" class="img-fluid" alt=""></a></li>
+                        <ul> 
+                            <?php while ( has_sub_field('social')) : ?>
+                                <li>
+                                    <li><a href="<?php the_sub_field('link_social') ?>" target="_blank"><img src="<?php echo get_sub_field('icon_social')['url'] ?>" class="img-fluid" alt=""></a></li>
+                                </li>
+                            <?php endwhile; ?>
+                            
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.8870574515176!2d105.81139931540206!3d20.997163994231034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac90e551a65d%3A0xd2e7a57b0f76ec2d!2zNDIgxJDGsOG7nW5nIEtoxrDGoW5nIMSQw6xuaCwgVGjGsOG7o25nIMSQw6xuaCwgVGhhbmggWHXDom4sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1632844944861!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <?php the_field('maps_iframe') ?>
                 </div>
             </div>
         </div>
@@ -90,13 +66,15 @@ get_header();
     <section class="banner-qc">
         <div class="container">
             <div class="content-qc">
-                <div class="logo-qc"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/logo-qc.png" class="img-fluid" alt=""></div>
-                <h3>Tiên phong giải pháp số hoá doanh nghiệp </h3>
+                <div class="logo-qc"><img src="<?php echo get_field('logo_bott','option')['url'] ?>" class="img-fluid" alt=""></div>
+                <h3><?php the_field('title_bott','option') ?> </h3>
                 <div class="link-more">
-                    <a href="">
+                    <a href="<?php echo the_field('link_bott','option') ?>">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g opacity="0.6">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.999 12.0054C16.999 12.0034 17 12.0024 17 12.0004C17 11.9674 16.984 11.9404 16.981 11.9084C16.973 11.8124 16.961 11.7164 16.924 11.6264C16.897 11.5584 16.851 11.5044 16.81 11.4444C16.779 11.4004 16.762 11.3494 16.724 11.3094L13.861 8.30943C13.479 7.90943 12.847 7.89543 12.447 8.27643C12.048 8.65743 12.033 9.29043 12.414 9.69043L13.664 11.0004H7.99996C7.44796 11.0004 6.99996 11.4474 6.99996 12.0004C6.99996 12.5524 7.44796 13.0004 7.99996 13.0004H13.586L12.293 14.2934C11.902 14.6834 11.902 15.3164 12.293 15.7074C12.488 15.9024 12.744 16.0004 13 16.0004C13.256 16.0004 13.512 15.9024 13.707 15.7074L16.707 12.7074C16.798 12.6164 16.872 12.5064 16.922 12.3854C16.973 12.2644 16.998 12.1354 16.999 12.0054ZM12 20C7.58896 20 3.99996 16.411 3.99996 12C3.99996 7.58901 7.58896 4.00001 12 4.00001C16.411 4.00001 20 7.58901 20 12C20 16.411 16.411 20 12 20ZM12 2C6.486 2 2 6.486 2 12C2 17.514 6.486 22 12 22C17.514 22 22 17.514 22 12C22 6.486 17.514 2 12 2Z" fill="white"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M16.999 12.0054C16.999 12.0034 17 12.0024 17 12.0004C17 11.9674 16.984 11.9404 16.981 11.9084C16.973 11.8124 16.961 11.7164 16.924 11.6264C16.897 11.5584 16.851 11.5044 16.81 11.4444C16.779 11.4004 16.762 11.3494 16.724 11.3094L13.861 8.30943C13.479 7.90943 12.847 7.89543 12.447 8.27643C12.048 8.65743 12.033 9.29043 12.414 9.69043L13.664 11.0004H7.99996C7.44796 11.0004 6.99996 11.4474 6.99996 12.0004C6.99996 12.5524 7.44796 13.0004 7.99996 13.0004H13.586L12.293 14.2934C11.902 14.6834 11.902 15.3164 12.293 15.7074C12.488 15.9024 12.744 16.0004 13 16.0004C13.256 16.0004 13.512 15.9024 13.707 15.7074L16.707 12.7074C16.798 12.6164 16.872 12.5064 16.922 12.3854C16.973 12.2644 16.998 12.1354 16.999 12.0054ZM12 20C7.58896 20 3.99996 16.411 3.99996 12C3.99996 7.58901 7.58896 4.00001 12 4.00001C16.411 4.00001 20 7.58901 20 12C20 16.411 16.411 20 12 20ZM12 2C6.486 2 2 6.486 2 12C2 17.514 6.486 22 12 22C17.514 22 22 17.514 22 12C22 6.486 17.514 2 12 2Z"
+                                    fill="white" />
                             </g>
                         </svg>
                         <span>Xem chi tiết</span>
